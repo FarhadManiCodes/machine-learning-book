@@ -1,7 +1,6 @@
 import sys
-from distutils.version import LooseVersion
-
-if LooseVersion(sys.version) < LooseVersion('3.8'):
+from packaging import version
+if sys.version_info.major < 3  or   sys.version_info.minor < 8:
     print('[FAIL] We recommend Python 3.8 or newer but'
           ' found version %s' % (sys.version))
 else:
@@ -32,12 +31,11 @@ def get_packages(pkgs):
 def check_packages(d):
 
     versions = get_packages(d.keys())
-
     for (pkg_name, suggested_ver), actual_ver in zip(d.items(), versions):
         if actual_ver == 'N/A':
             continue
-        actual_ver, suggested_ver = LooseVersion(actual_ver), LooseVersion(suggested_ver)
-        if pkg_name == "matplotlib" and actual_ver >= LooseVersion("3.8"):
+        actual_ver, suggested_ver = version.parse(actual_ver),version.parse(suggested_ver)
+        if pkg_name == "matplotlib" and actual_ver >=version.parse("3.8"):
             print(f'[FAIL] {pkg_name} {actual_ver}, please upgrade to {suggested_ver} >= matplotlib <= 3.8')
         elif actual_ver < suggested_ver:
             print(f'[FAIL] {pkg_name} {actual_ver}, please upgrade to >= {suggested_ver}')
