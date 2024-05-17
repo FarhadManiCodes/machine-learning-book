@@ -71,4 +71,5 @@
         . proportion of correctly classified instances
     - precision
     -others
-
+## Hyperparameters:
+    - we can not expect that the default parameters of the different learning algoriths provided by default are optimal for or specnitc problem task. hyperparameters are parameter s not learned from data but represent the knobs of amodel
