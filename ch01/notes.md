@@ -65,7 +65,7 @@
     remove unrelated information
     cleaning and dimentional reduction
 # 5 Training and selectin a model
-    by definition each model and classification a:lgorithm has its inherent biases. (A model needs to make some assumptions to be a model!)
+    by definition each model and classification algorithm has its inherent biases. (A model needs to make some assumptions to be a model!)
 ## Metrics:
     - Accuracy
         . proportion of correctly classified instances
